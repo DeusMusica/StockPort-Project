@@ -5,8 +5,8 @@ namespace StockPortProject.Models
     public class Customer
     {
         //[Key]
-        //[Display(Name = "Id")]
-        //public int Id { get; set; }
+        [Display(Name = "Id")]
+        public int Id { get; set; }
 
         //[Required]
         [Display(Name = "First Name")]

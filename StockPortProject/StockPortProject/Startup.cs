@@ -17,7 +17,11 @@ namespace StockPortProject
         {
             services.AddSingleton<DapperContext>();
             services.AddScoped<CustomerDao>();
-            
+
+            services.AddCors(o =>
+            o.AddDefaultPolicy(b =>
+                b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
@@ -45,6 +49,7 @@ namespace StockPortProject
             }
             app.UseSwagger();
             app.UseSwaggerUI(opt => opt.SwaggerEndpoint("/swagger/v1/swagger.json", "StockPort v1"));
+            app.UseCors();
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

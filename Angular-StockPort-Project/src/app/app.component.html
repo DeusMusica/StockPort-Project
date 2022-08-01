@@ -1,0 +1,15 @@
+<div>
+  <h3>Get Customers</h3>
+  <button (click)="getCustomer()">Get Customer</button>
+  <div *ngIf="hasCustomer">
+    <div *ngFor="let customer of customerList">
+    <div>ID: {{ customer.id }}</div>
+    <div>First name: {{ customer.fname }}</div>
+    <div>Last name: {{ customer.lname }}</div>
+    <div>Address: {{ customer.address }}</div>
+    <div>Phone: {{ customer.phone }}</div>
+    <div>Email: {{ customer.email }}</div>
+    <div>Username: {{ customer.username }}</div>
+    <div>Current Cash: {{ customer.currentCash }}</div>
+
+  </div>
