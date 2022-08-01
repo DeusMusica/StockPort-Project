@@ -15,4 +15,13 @@ export class CustomerService {
           .toPromise()
           .then(customer => customer ?? [<Customer>{}]);
   }
+
+  async newCustomer(newCustomer: Customer) {
+    const endpoint = 'http://localhost:5160/customers';
+
+    return await this.httpClient
+      .post(endpoint, newCustomer)
+      .toPromise()
+      .then(customer => customer ?? <Customer>{});
+  }
 }

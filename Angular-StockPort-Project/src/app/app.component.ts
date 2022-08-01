@@ -13,11 +13,17 @@ export class AppComponent {
 
   public hasCustomer: boolean = false;
   public customerList: Customer[] = []; 
+  public customer: Customer = {};
 
   constructor(protected customerService: CustomerService) {}
 
   async getCustomer () {
     this.customerList = await this.customerService.getCustomer();
     this.hasCustomer = true;
+  }
+
+  async newCustomer (newCustomer: Customer) {
+    this.customer = await this.customerService.newCustomer(newCustomer);
+
   }
 }
