@@ -1,0 +1,30 @@
+<div class="container" *ngIf="true">
+    <h1>Welcome to StockPort!</h1>
+    <h2>Please sign in.</h2>
+    <form #customerForm="ngForm">
+        <div class="form-group">
+            <label for="name">Username: </label>
+            <br />
+            <input type="text" class="form-control" id="usernamce" required [(ngModel)]="authenticationinfo.username"
+                name="username" #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+                Username is required
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="name">Password: </label>
+            <br />
+            <input type="text" class="form-control" id="password" required [(ngModel)]="authenticationinfo.password"
+                name="password" #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+                Password is required
+            </div>
+        </div>
+        <br />
+        <!-- <button type="submit" class="btn btn-success" (click)="newCustomer(customer)"
+            [disabled]="!customerForm.form.valid">Submit</button>
+        <button type="submit" class="btn btn-success" (click)="hiddenSwitch()">Register</button> -->
+
+    </form>
+</div>

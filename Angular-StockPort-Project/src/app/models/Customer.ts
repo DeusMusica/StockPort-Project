@@ -1,5 +1,5 @@
 export interface Customer {
-    id?: Number;
+    pK_CustomerID?: Number;
     fname?: string;
     lname?: string;
     address?: string;

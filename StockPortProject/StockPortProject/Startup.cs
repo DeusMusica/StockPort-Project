@@ -17,6 +17,7 @@ namespace StockPortProject
         {
             services.AddSingleton<DapperContext>();
             services.AddScoped<CustomerDao>();
+            services.AddScoped<AuthenticationDao>();
 
             services.AddCors(o =>
             o.AddDefaultPolicy(b =>
