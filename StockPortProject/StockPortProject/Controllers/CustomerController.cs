@@ -17,7 +17,7 @@ namespace StockPortProject.Controllers
 
         [HttpGet]
         [Route("customers/search")]
-        public async Task<IActionResult> GetCustomer([FromQuery] Customer customerParams)
+        public async Task<IActionResult> GetCustomer([FromQuery] CustomerRequest customerParams)
         {
             try
             {
@@ -34,9 +34,28 @@ namespace StockPortProject.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("customers/{id}")]
+        public async Task<IActionResult> GetCustomerById([FromRoute] int id)
+        {
+            try
+            {
+                var customer = await _CustomerDao.GetCustomerById(id);
+                if (customer == null)
+                {
+                    return StatusCode(404);
+                }
+                return Ok(customer);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
         [HttpPost]
         [Route("customers")]
-        public async Task<IActionResult> CreateCustomer([FromBody] Customer insertRequest)
+        public async Task<IActionResult> CreateCustomer([FromBody] CustomerRequest insertRequest)
         {
             try
             {
