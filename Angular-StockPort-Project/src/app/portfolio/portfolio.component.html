@@ -1,0 +1,29 @@
+<div class="container" *ngIf="true">
+    <h1>Create A New Portfolio!</h1>
+    <h2>Please name for Portfolio</h2>
+    <form #customerForm="ngForm">
+        <div class="form-group">
+          <label for="name">User ID: </label>
+          <br/>
+          <input type="text" class="form-control" id="id" required [(ngModel)]="portfolioInfo.fK_CustomerID" name="id"
+            #name="ngModel">
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+            Name is required
+          </div>
+        </div>
+        <br/>
+    
+      <div class="form-group">
+        <label for="name">Portfolio Name: </label>
+        <br/>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="portfolioInfo.name" name="name"
+          #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+          Name is required
+        </div>
+      </div>
+      <br/>
+      <button type="submit" class="btn btn-success" (click)="newPortfolio(portfolioInfo)"
+            [disabled]="!customerForm.form.valid">Submit</button>
+    </form>
+</div>

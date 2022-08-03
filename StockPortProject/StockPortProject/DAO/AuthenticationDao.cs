@@ -21,7 +21,7 @@ namespace StockPortProject.DAO
 
         public async Task<AuthenticationResponse> UserAuthentication(AuthenticationResponse loginInfo)
         {
-            var query = $"SELECT [Username], Password FROM Customer WHERE [Username] = '{loginInfo.Username}'";
+            var query = $"SELECT PK_CustomerID, [Username], Password FROM Customer WHERE [Username] = '{loginInfo.Username}'";
 
             using (var connection = _context.CreateConnection())
             {

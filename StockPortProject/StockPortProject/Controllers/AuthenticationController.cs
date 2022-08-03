@@ -18,7 +18,7 @@ namespace StockPortProject.Controllers
         }
 
         [HttpPost]
-        [Route("Authentication/")]
+        [Route("authentication/")]
         public async Task<IActionResult> UserAuthentication([FromBody] AuthenticationResponse logininfo)
         {
             try
@@ -27,7 +27,7 @@ namespace StockPortProject.Controllers
                 
                 if (customer.Username == logininfo.Username && customer.Password == logininfo.Password)
                 {
-                    return Ok(customer.Username);
+                    return Ok(customer);
                 }
                 else
                 {

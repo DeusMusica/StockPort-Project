@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthenticationInfo } from '../../models/AuthenticationModel';
 import { AuthenticationService } from '../../services/authentication-service.service';
 
@@ -9,7 +9,7 @@ import { AuthenticationService } from '../../services/authentication-service.ser
 })
 export class AuthComponent implements OnInit {
   public authenticationinfo: AuthenticationInfo = {};
-
+   
   constructor(protected authenticationService: AuthenticationService) { }
   
   async userAuthentication(LoginInfo: AuthenticationInfo) {
@@ -17,9 +17,7 @@ export class AuthComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  // async userAuthentication(LoginInfo: AuthenticationInfo) {
-  //   this.LoginInfo = await this.authenticationService.AuthenticationInfo(LoginInfo);
-  // }
+  
 
   // async hiddenSwitch () {
   //   this.showLogin = false;
