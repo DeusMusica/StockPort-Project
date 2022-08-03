@@ -1,0 +1,115 @@
+<!-- <app-auth></app-auth>
+<app-portfolio></app-portfolio> -->
+<!-- <router-outlet></router-outlet> -->
+<!-- <app-stock-details></app-stock-details> -->
+
+
+
+<div class="container" *ngIf="true">
+  <h1>Hello, New Customer!</h1>
+  <h2>Please enter user information</h2>
+  <form #customerForm="ngForm">
+    <div class="form-group">
+      <label for="name">First Name: </label>
+      <br />
+      <input type="text" class="form-control" id="fname" required [(ngModel)]="customer.fname" name="fname"
+        #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+        First Name is required
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="name">Last Name: </label>
+      <br />
+      <input type="text" class="form-control" id="lname" required [(ngModel)]="customer.lname" name="lname"
+        #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+        Last Name is required
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="name">Address: </label>
+      <br />
+      <input type="text" class="form-control" id="address" required [(ngModel)]="customer.address" name="address"
+        #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+        Address is required
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="name">Phone Number: </label>
+      <br />
+      <input type="text" class="form-control" id="phone" required [(ngModel)]="customer.phone" name="phone"
+        #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+        Phone Number is required
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="name">E-Mail Address: </label>
+      <br />
+      <input type="text" class="form-control" id="email" required [(ngModel)]="customer.email" name="email"
+        #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+        E-mail Address is required
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="name">Username: </label>
+      <br />
+      <input type="text" class="form-control" id="username" required [(ngModel)]="customer.username" name="username"
+        #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+        Username is required
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="name">Password: </label>
+      <br />
+      <input type="text" class="form-control" id="password" required [(ngModel)]="customer.password" name="password"
+        #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+        Name is required
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="name">Starting Cash: </label>
+      <br />
+      <input type="number" class="form-control" id="currentCash" required [(ngModel)]="customer.currentCash"
+        name="currentCash" #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
+        Amount is required
+      </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success" (click)="newCustomer(customer)"
+      [disabled]="!customerForm.form.valid">Submit</button>
+      &nbsp;
+      <button type="button" routerLink="/Authenication">Sign in</button>
+  </form>
+</div>
+
+<div>
+  <div class="container" *ngIf="false">
+    <h3>Get Customers</h3>
+    <button (click)="getCustomer()">Get Customer</button>
+    <!-- <div *ngIf="hasCustomer"> -->
+    <div *ngFor="let customer of customerList">
+      <div>ID: {{ customer.pK_CustomerID }}</div>
+      <div>First name: {{ customer.fname }}</div>
+      <div>Last name: {{ customer.lname }}</div>
+      <div>Address: {{ customer.address }}</div>
+      <div>Phone: {{ customer.phone }}</div>
+      <div>Email: {{ customer.email }}</div>
+      <div>Username: {{ customer.username }}</div>
+      <div>Current Cash: {{ customer.currentCash }}</div>
+    </div>
+  </div>
+</div>

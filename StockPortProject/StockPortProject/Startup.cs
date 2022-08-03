@@ -19,6 +19,7 @@ namespace StockPortProject
             services.AddScoped<CustomerDao>();
             services.AddScoped<AuthenticationDao>();
             services.AddScoped<PortfolioDao>();
+            services.AddScoped<StockDetailsDao>();
 
             services.AddCors(o =>
             o.AddDefaultPolicy(b =>

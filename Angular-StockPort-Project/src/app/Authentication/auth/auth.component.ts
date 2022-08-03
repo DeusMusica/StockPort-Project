@@ -13,7 +13,7 @@ export class AuthComponent implements OnInit {
   constructor(protected authenticationService: AuthenticationService) { }
   
   async userAuthentication(LoginInfo: AuthenticationInfo) {
-    this.authenticationinfo = await this.authenticationService.userAuthentication(LoginInfo);
+    await this.authenticationService.userAuthentication(LoginInfo);
   }
   ngOnInit(): void {
   }

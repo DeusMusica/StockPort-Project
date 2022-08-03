@@ -1,0 +1,16 @@
+<div>
+  <div class="container" *ngIf="true">
+    <h3>Get Stocks</h3>
+    <button (click)="getStocks()">Get Stocks</button>
+    <br/>
+    <div><h2>Stock Exchange: {{stockList[0].stockExchangeName}} </h2></div>
+    <br/>
+    <div *ngFor="let stock of stockList">
+      <div>Stock Symbol: {{ stock.symbol }}</div>
+      <br/>
+      <div>&nbsp;Stock Amount: {{ stock.stockClose }}</div>
+      <br/>
+    </div>
+  </div>
+</div>
+<div>

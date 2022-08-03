@@ -26,6 +26,7 @@ namespace StockPortProject.DAO
             using (var connection = _context.CreateConnection())
             {
                 var customer = await connection.QueryFirstOrDefaultAsync<AuthenticationResponse>(query);
+                
                 return customer;
             }
         }

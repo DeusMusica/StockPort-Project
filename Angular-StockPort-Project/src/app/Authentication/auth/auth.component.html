@@ -22,9 +22,10 @@
             </div>
         </div>
         <br />
-        <button type="submit" class="btn btn-success" (click)="userAuthentication(authenticationinfo)"
-            [disabled]="!customerForm.form.valid">Submit</button>
-        <!-- <button type="submit" class="btn btn-success" (click)="hiddenSwitch()">Register</button> -->
+        <button type="submit" class="btn btn-success"  (click)="userAuthentication(authenticationinfo)" 
+            [disabled]="!customerForm.form.valid" >Submit</button>
+            &nbsp;
+        <button type="button" class="btn btn-success" routerLink="/Customer">Register</button>
 
     </form>
 </div>
