@@ -20,11 +20,21 @@
             <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
                 Password is required
             </div>
+            <div *ngIf="showWarning">
+                <h4>Username or Password Incorrect!</h4>
+    
+            </div>
+
+
         </div>
         <br />
-        <button type="submit" class="btn btn-success"  (click)="userAuthentication(authenticationinfo)" 
-            [disabled]="!customerForm.form.valid" >Submit</button>
-            &nbsp;
+        <button type="submit" class="btn btn-success" (click)="userAuthentication(authenticationinfo)"
+            [disabled]="!customerForm.form.valid">Submit</button>
+        <div *ngif="goFoward">
+            <nav routerLink="/Portfoliol"></nav>
+        </div>
+        
+        &nbsp;
         <button type="button" class="btn btn-success" routerLink="/Customer">Register</button>
 
     </form>

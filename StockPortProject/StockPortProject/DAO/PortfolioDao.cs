@@ -17,6 +17,17 @@ namespace StockPortProject.DAO
             _context = context;
         }
 
+        public async Task<IEnumerable<PortfolioResponse>> GetPortfolioById(int id)
+        {
+            var query = $"Select Name, TotalStock, TotalStockValue From Portfolio Where FK_CustomerID = {id}";
+
+            using (var connection = _context.CreateConnection())
+            {
+                var stock = await connection.QueryAsync<PortfolioResponse>(query);
+                return stock.ToList();
+            }
+        }
+
         public async Task CreatePortfolio (PortfolioRequest insertRequest)
         {
             var query = $"INSERT INTO Portfolio (FK_CUstomerID, Name, TotalStock, TotalStockValue) VALUES" +

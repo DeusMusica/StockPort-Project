@@ -24,20 +24,26 @@ namespace StockPortProject.Controllers
             try
             {
                 var customer = await _AuthenticationDao.UserAuthentication(logininfo);
-                if (customer == null)
+                if (customer != null)
                 {
-                    return StatusCode(204);
-                }
-                if (customer.Username == logininfo.Username && customer.Password == logininfo.Password)
-                {
+                    
                     AuthenticationRequest customerreturn = new AuthenticationRequest();
-                    customerreturn.PK_CustomerID = customer.PK_CustomerID;
-                    customerreturn.Username = customer.Username;
+                    if (customer.Username == logininfo.Username && customer.Password == logininfo.Password)
+                    {
+                        //AuthenticationRequest customerreturn = new AuthenticationRequest();
+                        customerreturn.PK_CustomerID = customer.PK_CustomerID;
+                        customerreturn.Username = customer.Username;
+                        //return Ok(customerreturn);
+                    }
+                    if (customer.Username != logininfo.Username || customer.Password != logininfo.Password)
+                    {
+                        return StatusCode(401);
+                    }
                     return Ok(customerreturn);
                 }
                 else
                 {
-                    return StatusCode(204);
+                    return StatusCode(401);
                 }
                 
             }

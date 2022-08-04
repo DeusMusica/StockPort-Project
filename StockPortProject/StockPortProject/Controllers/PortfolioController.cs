@@ -16,6 +16,24 @@ namespace StockPortProject.Controllers
             _PortfolioDao = portfolioDao;
         }
 
+        [HttpGet]
+        [Route("portfolio/{id}")]
+        public async Task<IActionResult> GetPortfolioById([FromRoute] int id)
+        {
+            try
+            {
+                var portfolio = await _PortfolioDao.GetPortfolioById(id);
+                if (portfolio == null)
+                {
+                    return StatusCode(404);
+                }
+                return Ok(portfolio);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
         [HttpPost]
         [Route("portfolio")]
         public async Task<IActionResult> CreatePortfolio([FromBody] PortfolioRequest insertRequest)
