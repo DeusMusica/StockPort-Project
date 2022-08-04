@@ -6,19 +6,21 @@ import { AuthenticationService } from '../services/authentication-service.servic
   providedIn: 'root'
 })
 export class PortfolioService {
-  public basePath: string = 'http://localhost:5160'
+  public basePath: string = 'http://localhost:5160/portfolio'
 
-  public portfolioId : Number = this.authenticationService.userID;
+  constructor(protected httpClient: HttpClient) { }
 
-  constructor(protected httpClient: HttpClient, protected authenticationService: AuthenticationService) {}
-  
   async newPortfolio(newPortfolioInfo: PortfolioInfo) {
-    const endpoint = 'http://localhost:5160/portfolio';
-    //newPortfolioInfo.fK_CustomerID = this.portfolioId;
     return await this.httpClient
-    
-      .post(endpoint, newPortfolioInfo)
+      .post(this.basePath, newPortfolioInfo)
       .toPromise()
       .then(newPortfolio => newPortfolio ?? <PortfolioInfo>{});
+  }
+
+  async getPortfolios(userID: Number): Promise<PortfolioInfo[]> {
+    return await this.httpClient
+      .get<PortfolioInfo[]>(`${this.basePath}/${userID}`)
+      .toPromise()
+      .then(stock => stock ?? [<PortfolioInfo>{}]);
   }
 }

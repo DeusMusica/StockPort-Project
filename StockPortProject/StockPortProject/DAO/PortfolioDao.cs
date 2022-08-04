@@ -28,7 +28,7 @@ namespace StockPortProject.DAO
             }
         }
 
-        public async Task CreatePortfolio (PortfolioRequest insertRequest)
+        public async Task CreatePortfolio(PortfolioRequest insertRequest)
         {
             var query = $"INSERT INTO Portfolio (FK_CUstomerID, Name, TotalStock, TotalStockValue) VALUES" +
                         $"('{insertRequest.FK_CustomerID}', '{insertRequest.Name}', '{insertRequest.TotalStock}', '{insertRequest.TotalStockValue}')";

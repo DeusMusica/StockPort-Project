@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,12 +9,10 @@ export class AppComponent {
   title = 'StockPort-Project';
 
   public showHome: boolean = true;
-  
 
-  constructor() {}
-  
-  async hiddenSwitch () {
+  constructor() { }
+
+  async hiddenSwitch() {
     this.showHome = false;
   }
-  
 }

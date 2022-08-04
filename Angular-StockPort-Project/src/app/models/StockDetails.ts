@@ -3,5 +3,5 @@ export interface StockDetailInfo {
     symbol?: String;
     stockClose?: Number;
 
-    
+
 }

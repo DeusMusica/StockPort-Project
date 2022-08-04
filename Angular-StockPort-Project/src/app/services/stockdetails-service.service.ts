@@ -6,15 +6,14 @@ import { StockDetailInfo } from '../models/StockDetails';
   providedIn: 'root'
 })
 export class StockDetailsService {
-    public basePath: string = 'http://localhost:5160'
+  public basePath: string = 'http://localhost:5160'
 
-    constructor(protected httpClient: HttpClient) {}
-  
-    async getStocks(): Promise<StockDetailInfo[]> {   
-        return await this.httpClient
-            .get<StockDetailInfo[]>(`${this.basePath}/stocks`)
-            .toPromise()
-            .then(stock => stock ?? [<StockDetailInfo>{}]);
-    }
-    
+  constructor(protected httpClient: HttpClient) { }
+
+  async getStocks(): Promise<StockDetailInfo[]> {
+    return await this.httpClient
+      .get<StockDetailInfo[]>(`${this.basePath}/stocks`)
+      .toPromise()
+      .then(stock => stock ?? [<StockDetailInfo>{}]);
+  }
 }

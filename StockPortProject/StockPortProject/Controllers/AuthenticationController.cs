@@ -9,7 +9,7 @@ namespace StockPortProject.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-       
+
         private readonly AuthenticationDao _AuthenticationDao;
 
         public AuthenticationController(AuthenticationDao authenticationDao)
@@ -26,14 +26,14 @@ namespace StockPortProject.Controllers
                 var customer = await _AuthenticationDao.UserAuthentication(logininfo);
                 if (customer != null)
                 {
-                    
+
                     AuthenticationRequest customerreturn = new AuthenticationRequest();
                     if (customer.Username == logininfo.Username && customer.Password == logininfo.Password)
                     {
-                        //AuthenticationRequest customerreturn = new AuthenticationRequest();
+
                         customerreturn.PK_CustomerID = customer.PK_CustomerID;
                         customerreturn.Username = customer.Username;
-                        //return Ok(customerreturn);
+
                     }
                     if (customer.Username != logininfo.Username || customer.Password != logininfo.Password)
                     {
@@ -45,7 +45,7 @@ namespace StockPortProject.Controllers
                 {
                     return StatusCode(401);
                 }
-                
+
             }
             catch (Exception e)
             {

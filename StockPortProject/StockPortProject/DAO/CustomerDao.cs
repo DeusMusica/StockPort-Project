@@ -19,13 +19,6 @@ namespace StockPortProject.DAO
 
         public async Task<IEnumerable<CustomerResponse>> GetCustomers(CustomerRequest querycustomer)
         {
-            //var query = $"Select * FROM Customer";
-            //using (var connection = _context.CreateConnection())
-            //{
-            //    var customer = await connection.QueryAsync<Customer>(query);
-            //    return customer.ToList();
-            //}
-
             var query = $"SELECT PK_CustomerID, Fname, Lname, Address, Phone, Email, Username, CurrentCash FROM Customer WHERE 1= 1 ";
 
             if (!string.IsNullOrEmpty(querycustomer.Fname))
@@ -66,7 +59,7 @@ namespace StockPortProject.DAO
                 var customers = await connection.QueryAsync<CustomerResponse>(query, parameters);
                 return customers.ToList();
             }
-        }        
+        }
 
         public async Task<CustomerResponse> GetCustomerById(int id)
         {

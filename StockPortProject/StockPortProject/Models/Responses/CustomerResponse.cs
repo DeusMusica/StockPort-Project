@@ -36,6 +36,6 @@ namespace StockPortProject.Models
         [Display(Name = "Current Cash")]
         public decimal CurrentCash { get; set; }
 
-    
+
     }
 }

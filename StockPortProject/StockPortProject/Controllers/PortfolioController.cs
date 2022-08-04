@@ -8,7 +8,7 @@ namespace StockPortProject.Controllers
     [ApiController]
     public class PortfolioController : ControllerBase
     {
-        
+
         private readonly PortfolioDao _PortfolioDao;
 
         public PortfolioController(PortfolioDao portfolioDao)

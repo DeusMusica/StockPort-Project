@@ -4,7 +4,7 @@ namespace StockPortProject.Models
 {
     public class StockDetailsResponse
     {
-        [Display(Name= "Stock Exhange Name")]
+        [Display(Name = "Stock Exhange Name")]
         public string StockExchangeName { get; set; }
 
         [Display(Name = "Stock Symbol")]

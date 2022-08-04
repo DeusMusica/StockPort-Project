@@ -3,11 +3,11 @@
 namespace StockPortProject.Models
 {
     public class CustomerRequest
-    {        
-        
+    {
+
         [Display(Name = "Id")]
         public int PK_CustomerID { get; set; }
-        
+
         [Display(Name = "First Name")]
         public string? Fname { get; set; }
 
@@ -32,6 +32,6 @@ namespace StockPortProject.Models
         [Display(Name = "Current Cash")]
         public decimal CurrentCash { get; set; }
 
-        
+
     }
 }

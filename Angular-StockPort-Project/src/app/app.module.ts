@@ -12,7 +12,7 @@ import { CustomerComponent } from './customer/customer.component';
 
 
 @NgModule({
-  declarations: [ AuthComponent, PortfolioComponent, StockDetailsComponent, CustomerComponent, AppComponent],
+  declarations: [AuthComponent, PortfolioComponent, StockDetailsComponent, CustomerComponent, AppComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,
     RouterModule.forRoot([
       { path: 'Authenication', component: AuthComponent },

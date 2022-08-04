@@ -1,12 +1,37 @@
 <div class="container" *ngIf="portfolioHome">
   <h1>Welcome to your Portfolio!</h1>
   <h2>Please select an option</h2>
+  <button type="button" (click)="showPortfolio()">View Portfolios</button>
+  &nbsp;
   <button type="button" routerLink="/StockDetails">View Stock Options</button>
   &nbsp;
   <button type="button" (click)="showCreatePortfolio()">Create New Profolio</button>
   &nbsp;
   <button type="button" routerLink="/Authenication">Sign out</button>
+</div>
+<!-- view portfolio-->
+<div class="container" *ngIf="displayPortfolio">
+  <h1>Your Portfolios</h1>
+  <button (click)="getPortfolios()">Get Portfolios</button>
+  &nbsp;
+  <button type="button" (click)="showCreatePortfolio()">Create New Profolio</button>
+  &nbsp;
+  <button type="button" routerLink="/StockDetails">View Stock Options</button>
+  &nbsp;
+  <button type="button" (click)="goHome()">Go Back</button>
+  &nbsp;
+  <button type="button" routerLink="/Authenication">Sign out</button>
+  <br />
+  <br />
+  <div *ngFor="let portfolio of portfolioList">
+    <div>Name: {{ portfolio.name }}</div>
+    <br />
+    <div>&nbsp;Total Stock: {{ portfolio.totalStock }}</div>
+    <br />
+    <div>&nbsp;&nbsp;Total Stock Value: {{ portfolio.totalStockValue }}</div>
+    <br />
 
+  </div>
 </div>
 
 
@@ -15,17 +40,6 @@
   <h1>Create A New Portfolio!</h1>
   <h2>Please name for Portfolio</h2>
   <form #customerForm="ngForm">
-    <div class="form-group">
-      <label for="name">User ID: </label>
-      <br />
-      <input type="text" class="form-control" id="id" required [(ngModel)]="portfolioInfo.fK_CustomerID" name="id"
-        #name="ngModel">
-      <div [hidden]="name.valid || name.pristine" class="alert alert-danger" style="color:red;">
-        Name is required
-      </div>
-    </div>
-    <br />
-
     <div class="form-group">
       <label for="name">Portfolio Name: </label>
       <br />
@@ -40,6 +54,8 @@
       [disabled]="!customerForm.form.valid">Submit</button>
     &nbsp;
     <button type="button" routerLink="/StockDetails">View Stock Options</button>
+    &nbsp;
+    <button type="button" (click)="goHome()">Go Back</button>
     &nbsp;
     <button type="button" routerLink="/Authenication">Sign out</button>
   </form>

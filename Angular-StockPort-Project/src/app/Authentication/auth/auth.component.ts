@@ -16,32 +16,19 @@ export class AuthComponent implements OnInit {
 
   public showWarning: boolean = false;
   public goFoward: boolean = false;
-  
+
 
   constructor(protected authenticationService: AuthenticationService, private router: Router) { }
-  
+
   async userAuthentication(LoginInfo: AuthenticationInfo) {
-    await this.authenticationService.userAuthentication(LoginInfo);
-    if(this.authenticationService.showErrorMessage==true)
-    {
-      this.showWarning = true;
-    } 
-    if(this.authenticationService.showErrorMessage==false)
-    {
-    this.router.navigateByUrl('/Portfolio');
+    const loginResult = await this.authenticationService.userAuthentication(LoginInfo);
+    if (loginResult) {
+      this.router.navigateByUrl('/Portfolio');
     }
-   
+    else {
+      this.showWarning = true;
+    }
   }
   ngOnInit(): void {
   }
-  // Continue()
-  // {
-  //   this.router.navigateByUrl('/Portfolio');
-  // }
-  
-
-  // async hiddenSwitch () {
-  //   this.showWarning = true;
-    
-  // }
 }

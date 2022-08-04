@@ -12,14 +12,13 @@ export class StockDetailsComponent implements OnInit {
 
   public stockList: StockDetailInfo[] = [];
 
-  constructor(protected stockDetailsService: StockDetailsService) {}
+  constructor(protected stockDetailsService: StockDetailsService) { }
 
-  async getStocks () {
+  async getStocks() {
     this.stockList = await this.stockDetailsService.getStocks();
-    
+
   }
-  
+
   ngOnInit(): void {
   }
-
 }

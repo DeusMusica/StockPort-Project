@@ -6,9 +6,9 @@ namespace StockPortProject.Models
     {
         [Display(Name = "Id")]
         public int PK_CustomerID { get; set; }
-        
+
         [Display(Name = "Username")]
         public string Username { get; set; }
-        
+
     }
 }

@@ -11,9 +11,9 @@ import { CustomerComponent } from '../customer/customer.component';
 
 
 const appRoutes: Routes = [
-  { path: 'Authenication', component: AuthComponent},
-  { path: 'Portfolio', component: PortfolioComponent},
-  { path: 'StockDetails', component: StockDetailsComponent},
+  { path: 'Authenication', component: AuthComponent },
+  { path: 'Portfolio', component: PortfolioComponent },
+  { path: 'StockDetails', component: StockDetailsComponent },
   { path: 'Customer', component: CustomerComponent },
   //{ path: '', component: AppComponent }
 ]

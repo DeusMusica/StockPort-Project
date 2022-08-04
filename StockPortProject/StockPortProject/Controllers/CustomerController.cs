@@ -22,7 +22,7 @@ namespace StockPortProject.Controllers
             try
             {
                 var customers = await _CustomerDao.GetCustomers(customerParams);
-                if (customers.Count()==0)
+                if (customers.Count() == 0)
                 {
                     return StatusCode(404);
                 }

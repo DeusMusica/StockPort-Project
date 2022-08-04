@@ -11,7 +11,7 @@ namespace StockPortProject.DAO
 {
     public class AuthenticationDao
     {
-       
+
         private readonly DapperContext _context;
 
         public AuthenticationDao(DapperContext context)
@@ -26,7 +26,7 @@ namespace StockPortProject.DAO
             using (var connection = _context.CreateConnection())
             {
                 var customer = await connection.QueryFirstOrDefaultAsync<AuthenticationResponse>(query);
-                
+
                 return customer;
             }
         }
